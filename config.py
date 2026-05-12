@@ -3,8 +3,16 @@
 #  All constants and genre definitions live here
 # ══════════════════════════════════════════════
 
-# TMDB API key
-TMDB_API_KEY = "2af6a3968a0e2530ef9b05b78d116b69"
+import os
+
+# TMDB API key — set via Streamlit secrets or environment variable
+TMDB_API_KEY = os.getenv("TMDB_API_KEY", "2af6a3968a0e2530ef9b05b78d116b69")
+
+# ── Google Drive file ID for similarity.pkl ────────────────────────────────────
+# Get this from your Google Drive share link:
+# https://drive.google.com/file/d/YOUR_FILE_ID_HERE/view
+# Paste just the ID below:
+SIMILARITY_GDRIVE_ID = "1VlBwBIyWFqng3w_VaPkATwXVv3ZzqJZG"
 
 # Placeholder poster shown when TMDB has no image
 PLACEHOLDER_POSTER = "https://placehold.co/500x750/13131c/8a8799?text=No+Poster"
@@ -13,9 +21,6 @@ PLACEHOLDER_POSTER = "https://placehold.co/500x750/13131c/8a8799?text=No+Poster"
 NUM_RECOMMENDATIONS = 5
 
 # ── Genre map ──────────────────────────────────────────────────────────────────
-# key        → display name shown in the UI
-# "tag"      → stemmed substring to look for inside the 'tags' column
-# "emoji"    → pill icon
 GENRES: dict[str, dict] = {
     "All":         {"tag": None,           "emoji": "🎬"},
     "Action":      {"tag": "action",       "emoji": "💥"},
@@ -28,5 +33,5 @@ GENRES: dict[str, dict] = {
     "Comedy":      {"tag": "comedi",       "emoji": "😂"},
 }
 
-# Rank labels for the recommendation cards
+# Rank labels for recommendation cards
 RANK_LABELS = ["1st", "2nd", "3rd", "4th", "5th"]

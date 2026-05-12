@@ -1,0 +1,10 @@
+# Large model file — hosted on Google Drive, downloaded at runtime
+similarity.pkl
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Streamlit
+.streamlit/secrets.toml
